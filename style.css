@@ -395,7 +395,9 @@ nav #nav_right p {
     /* nav {
         justify-content: center;
     } */
-
+    .cur-top{
+        display:none;
+    }
     #nav_left ul {
         display: none;
     }
