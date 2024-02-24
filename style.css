@@ -88,7 +88,7 @@ nav #nav_right p {
 #nav_right input {
     border: none;
     background: #fff;
-    padding: 0.5vw 2vw;
+    padding: 0.5vw 0;
     border-radius: 20px;
     pointer-events: none;
     cursor: pointer;
@@ -396,8 +396,9 @@ nav #nav_right p {
         justify-content: center;
     } */
     .cur-top{
-        display:none;
+        display: none;
     }
+
     #nav_left ul {
         display: none;
     }

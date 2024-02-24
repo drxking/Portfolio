@@ -109,7 +109,7 @@ document.addEventListener("mousemove", (dets) => {
   let degg;
   prev = dets.clientX;
   degg = -(next - dets.clientX) * 3;
-  console.log(degg);
+
   // cursor.style.transform = `rotate(${degg}deg)`
   gsap.to(cursor, {
     transform: `rotate(${degg}deg)`,
@@ -133,22 +133,8 @@ document.addEventListener("mouseup", () => {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.querySelector(".btn-scroll").addEventListener("click",()=>{
+document.querySelectorAll(".btn-scroll").forEach((btn) => {
+  btn.addEventListener("click", () => {
     locoScroll.scrollTo(document.getElementById("section-3"));
-})
-
-
+  });
+});
