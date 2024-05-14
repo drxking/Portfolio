@@ -211,24 +211,14 @@ document.addEventListener("mouseup", () => {
 
 
 
-const hasVisitedBefore = localStorage.getItem('hasVisited');
-
-if (!hasVisitedBefore) {
-  console.log("HEllo")
-
-  // Set a flag in localStorage to indicate that the user has visited
-  localStorage.setItem('hasVisited', 'true');
-}
 
 let h1 = document.querySelector(".loader h1");
 let textcont = h1.textContent;
 let clutter = "";
 let len = textcont.length / 2;
-console.log(len);
 for (yy in textcont) {
   if (yy < len) {
     clutter += `<span class="left">${textcont[yy]}</span>`;
-    console.log(textcont[yy]);
   } else {
     clutter += `<span class="right">${textcont[yy]}</span>`;
   }
@@ -236,7 +226,13 @@ for (yy in textcont) {
 h1.innerHTML = clutter;
 
 tl = gsap.timeline();
-
+tl.to(".dot",{
+  opacity:1,
+  // duration:0,
+  delay:0.6,
+  height:`350px`,
+  width:`350px`
+})
 tl.from(
   ".loader h1 .left",
   {
@@ -258,11 +254,42 @@ tl.from(
   "a"
 );
 
+tl.to(
+  ".loader h1 .left",
+  {
+    opacity: 0,
+    y: -100,
+    stagger: 0.1,
+    delay: 1,
+    duration:2
+  },
+  "b"
+);
+tl.to(
+  ".loader h1 .right",
+  {
+    opacity: 0,
+    y: -100,
+    stagger: -0.1,
+    delay: 1,
+    duration:2
+  },
+  "b"
+);
+
+
+
+
+
+
+
+
+
 tl.to(".loader", {
   bottom: `100%`,
   delay: 0.5,
   duration: 1.3,
   ease: Expo.easeIn,
-});
+},"b");
 
 
