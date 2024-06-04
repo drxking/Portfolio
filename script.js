@@ -4,8 +4,8 @@ function Loco() {
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector("main"),
     smooth: true,
-    multiplier: 2,
-    lerp: 0.05,
+    multiplier: 1.5,
+    lerp: 0.07,
   });
   locoScroll.on("scroll", ScrollTrigger.update);
 
