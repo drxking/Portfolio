@@ -5,7 +5,7 @@ function Loco() {
     el: document.querySelector("main"),
     smooth: true,
     multiplier: 2,
-    lerp: 0.03,
+    lerp: 0.05,
   });
   locoScroll.on("scroll", ScrollTrigger.update);
 
