@@ -5,7 +5,7 @@ function Loco() {
     el: document.querySelector("main"),
     smooth: true,
     multiplier: 1.5,
-    lerp: 0.07,
+    lerp: 0.09,
   });
   locoScroll.on("scroll", ScrollTrigger.update);
 
@@ -28,35 +28,23 @@ function Loco() {
       : "fixed",
   });
 
-  document.querySelectorAll(".btn-proj").forEach((proj)=>{
+  document.querySelectorAll(".btn-proj").forEach((proj) => {
     proj.addEventListener("click", () => {
       locoScroll.scrollTo("#section-3");
     });
-  })
-  
-  
-  document.querySelectorAll(".btn-skill").forEach((skill)=>{
+  });
 
-    skill.addEventListener("click",()=>{
-      locoScroll.scrollTo("#skills")
-    })
-  })
-  
+  document.querySelectorAll(".btn-skill").forEach((skill) => {
+    skill.addEventListener("click", () => {
+      locoScroll.scrollTo("#skills");
+    });
+  });
+
   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
   ScrollTrigger.refresh();
 }
 Loco();
-
-
-
-
-
-
-
-
-
-
 
 function copyEmail() {
   // Get the input element
@@ -72,15 +60,6 @@ function copyEmail() {
   // Deselect the email (optional)
   document.getSelection().removeAllRanges();
 }
-
-
-
-
-
-
-
-
-
 
 let openb = document.getElementById("bar");
 let closeb = document.getElementById("close");
@@ -125,15 +104,6 @@ lis.forEach((li) => {
   });
 });
 
-
-
-
-
-
-
-
-
-
 gsap.to(".fan img", {
   rotate: `1090deg`,
   scrollTrigger: {
@@ -145,15 +115,6 @@ gsap.to(".fan img", {
   },
 });
 
-
-
-
-
-
-
-
-
-
 let cursor = document.querySelector(".cursor");
 var prev, next;
 
@@ -164,6 +125,7 @@ document.addEventListener("mousemove", (dets) => {
     y: dets.clientY,
   });
 });
+
 document.addEventListener("mousemove", (dets) => {
   next = prev;
   let degg;
@@ -197,21 +159,6 @@ document.addEventListener("mouseup", () => {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let h1 = document.querySelector(".loader h1");
 let textcont = h1.textContent;
 let clutter = "";
@@ -226,70 +173,123 @@ for (yy in textcont) {
 h1.innerHTML = clutter;
 
 tl = gsap.timeline();
-tl.to(".dot",{
-  opacity:1,
+tl.to(".dot", {
+  opacity: 1,
   // duration:0,
-  delay:0.6,
-  height:`350px`,
-  width:`350px`
+  delay: 0.6,
+  height: `350px`,
+  width: `350px`,
+});
+tl.from(
+  ".loader h1 .left",
+  {
+    opacity: 0,
+    y: 100,
+    stagger: 0.1,
+    delay: 0.3,
+  },
+  "a"
+);
+tl.from(
+  ".loader h1 .right",
+  {
+    opacity: 0,
+    y: 100,
+    stagger: -0.1,
+    delay: 0.3,
+  },
+  "a"
+);
+
+tl.to(
+  ".loader h1 .left",
+  {
+    opacity: 0,
+    y: -100,
+    stagger: 0.1,
+    delay: 1,
+    duration: 2,
+  },
+  "b"
+);
+tl.to(
+  ".loader h1 .right",
+  {
+    opacity: 0,
+    y: -100,
+    stagger: -0.1,
+    delay: 1,
+    duration: 2,
+  },
+  "b"
+);
+
+tl.to(
+  ".loader",
+  {
+    bottom: `100%`,
+    delay: 0.5,
+    duration: 1.3,
+    ease: Expo.easeIn,
+  },
+  "b"
+);
+
+
+
+
+
+let ii = document.querySelectorAll(".wrapper-2 .cards i")
+ii.forEach((i) => {
+  i.style.animationDelay = `${Math.random() * 3}s`
 })
-tl.from(
-  ".loader h1 .left",
-  {
-    opacity: 0,
-    y: 100,
-    stagger: 0.1,
-    delay: 0.3,
-  },
-  "a"
-);
-tl.from(
-  ".loader h1 .right",
-  {
-    opacity: 0,
-    y: 100,
-    stagger: -0.1,
-    delay: 0.3,
-  },
-  "a"
-);
+let cardImg = document.querySelector(".wrapper-2 .cards img")
 
-tl.to(
-  ".loader h1 .left",
-  {
-    opacity: 0,
-    y: -100,
-    stagger: 0.1,
-    delay: 1,
-    duration:2
-  },
-  "b"
-);
-tl.to(
-  ".loader h1 .right",
-  {
-    opacity: 0,
-    y: -100,
-    stagger: -0.1,
-    delay: 1,
-    duration:2
-  },
-  "b"
-);
+let innerWidtht = window.innerWidth
+if (innerWidtht < 720) {
+  cardImg.style.animationPlayState = `paused`
+  ii.forEach((i) => {
+    i.style.animationPlayState = `paused`
+  })}
+
+window.addEventListener("resize", () => {
+  let innerWidtht = window.innerWidth
+  if (innerWidtht < 720) {
+    cardImg.style.animationPlayState = `paused`
+    ii.forEach((i) => {
+      i.style.animationPlayState = `paused`
+    })
+
+  }
+  else if (innerWidtht > 720) {
+    cardImg.style.animationPlayState = `running`
+    ii.forEach((i) => {
+      i.style.animationPlayState = `running`
+    })
+  }
+
+})
+
+// async function timer() {
+//   i = 0;
+//   setInterval(() => {
+//     if (i <= 100) {
+//       console.log(i);
+//       i++;
+//     }
+//   }, 15);
+// }
+// timer();
 
 
-
-
-
-
-
-
-
-tl.to(".loader", {
-  bottom: `100%`,
-  delay: 0.5,
-  duration: 1.3,
-  ease: Expo.easeIn,
-},"b");
-
-
+function resetIt(){
+  let name = document.getElementById("name")
+  let email = document.getElementById("email")
+  let message = document.getElementById("message")
+  window.addEventListener("load",()=>{
+    name.value = ""
+    email.value = ""
+    message.value = ""
+  })
+}
+resetIt()

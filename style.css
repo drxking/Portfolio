@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap");
-@font-face {
-  font-family: rose;
-  src: url("./Roseberry.ttf");
-}
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +14,7 @@ body {
   width: 100%;
   background-color: #e5e5e5;
 }
+
 body {
   overflow-x: hidden;
   position: relative;
@@ -26,17 +24,17 @@ body {
   z-index: 500000000000;
   pointer-events: none;
   mix-blend-mode: difference;
-  top: -12.5px;
-  left: -12.5px;
-opacity: 0;
-
+  top: -10px;
+  left: -10px;
+  opacity: 0;
 }
 .cursor {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   background: #fff;
   mix-blend-mode: difference;
 }
+
 .fan {
   position: fixed;
   top: 2vw;
@@ -66,13 +64,12 @@ opacity: 0;
   font-size: 35px;
   overflow: hidden;
 }
-.loader h1 span{
+.loader h1 span {
   font-family: "Oswald";
-    display: inline-block;
+  display: inline-block;
   font-weight: 100;
-
 }
-.loader .dot{
+.loader .dot {
   height: 0;
   width: 0;
   border-radius: 50%;
@@ -83,7 +80,7 @@ opacity: 0;
 }
 nav {
   display: flex;
-  padding: 2.5vw 9vw;
+  padding: 2.5vw 7vw;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -127,7 +124,7 @@ nav #nav_right p {
 #nav_right input {
   border: none;
   background: #fff;
-  padding: 0.5vw 0;
+  padding: 0.5vw 1vw;
   border-radius: 20px;
   pointer-events: none;
   cursor: pointer;
@@ -150,6 +147,7 @@ nav #nav_right p {
 #bar {
   font-size: 22px;
   display: none;
+  padding: 10px;
 }
 
 #respo {
@@ -161,7 +159,7 @@ nav #nav_right p {
   top: 0;
   left: 0;
   z-index: 10000;
-  padding: 30px;
+  padding: 2.5vw 25px;
   /* transform: translateX(100%); */
   opacity: 0;
   pointer-events: none;
@@ -186,6 +184,7 @@ nav #nav_right p {
 #respo > div i {
   font-size: 27px;
   color: #e5e5e5;
+  padding: 10px;
 }
 #respo footer {
   position: absolute;
@@ -194,14 +193,16 @@ nav #nav_right p {
 #respo footer div {
   gap: 4vw;
 }
+#respo footer p {
+  color: #e5e5e5;
+}
 #respo footer div i {
   font-size: 40px;
-  /* box-shadow: 10px 10px 10px rgba(143, 143, 143, 0.24); */
-  filter: drop-shadow(15px 15px 20px rgba(232, 232, 232, 0.845));
+  filter: drop-shadow(15px 15px 20px rgba(14, 14, 14, 0.845));
 }
 #respo footer div a {
   text-decoration: none;
-  color: #fff;
+  color: #e5e5e5;
 }
 .section-1 {
   display: flex;
@@ -276,11 +277,23 @@ nav #nav_right p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1vw;
 }
 
 .wrapper-2 .cards i {
   font-size: 80px;
+  animation: wobble infinite 4s;
+  
+}
+.wrapper-2 .cards img {
+  animation: wobble infinite 4s;
+}
+
+@keyframes wobble {
+  50%{
+    transform: translateY(10px);
+  }
 }
 
 .wrapper-2 .cards p {
@@ -317,13 +330,13 @@ nav #nav_right p {
   height: 37vw;
   margin: 1vw;
   border-radius: 20px;
-  box-shadow: 10px 10px 15px rgba(128, 128, 128, 0.439);
+  box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.439);
 }
 .section-3 .fintory .fin-desk {
   height: 37vw;
   margin: 1vw;
   border-radius: 20px;
-  box-shadow: 10px 10px 15px rgba(128, 128, 128, 0.439);
+  box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.439);
 }
 .fintory-bot {
   width: 94%;
@@ -336,12 +349,12 @@ nav #nav_right p {
   align-items: center;
 }
 .fintory-bot p {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
 }
 .fintory-bot p span {
   font-weight: 900;
-  font-size: 17px;
+  font-size: 15px;
 }
 .fintory-bot a {
   background-color: #e5e5e5;
@@ -351,8 +364,17 @@ nav #nav_right p {
   padding: 0.5vw 2vw;
   text-decoration: none;
   color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.fintory-bot a i{
+  transition: 0.2s;
+}
+.fintory-bot a:hover i{
+  transform: rotate(45deg);
+}
 /* ----------------------------------------- */
 
 .section-3 .multiverse {
@@ -371,14 +393,14 @@ nav #nav_right p {
   height: 37vw;
   margin: 1vw;
   border-radius: 20px;
-  box-shadow: 10px 10px 15px rgba(44, 44, 44, 0.439),
+  box-shadow: 5px 5px 10px rgba(44, 44, 44, 0.439),
     -5px -5px 15px rgba(44, 44, 44, 0.439);
 }
 .section-3 .multiverse .mul-desk {
   height: 37vw;
   margin: 1vw;
   border-radius: 20px;
-  box-shadow: 10px 10px 15px rgba(44, 44, 44, 0.439),
+  box-shadow: 5px 5px 10px rgba(44, 44, 44, 0.439),
     -5px -5px 15px rgba(44, 44, 44, 0.439);
 }
 .multiverse-bot {
@@ -392,12 +414,12 @@ nav #nav_right p {
   align-items: center;
 }
 .multiverse-bot p {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 400;
 }
 .multiverse-bot p span {
   font-weight: 900;
-  font-size: 17px;
+  font-size: 15px;
 }
 .multiverse-bot a {
   background-color: #e5e5e5;
@@ -407,10 +429,22 @@ nav #nav_right p {
   padding: 0.5vw 2vw;
   text-decoration: none;
   color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.multiverse-bot a i{
+  transition: 0.2s;
+}
+.multiverse-bot a:hover i{
+  transform: rotate(45deg);
 }
 
 .section-4 {
   padding: 4vw;
+  background-color: #000;
+  color: #e5e5e5;
+  border-radius: 40px 40px 0 0 ;
 }
 
 .section-4 h1 {
@@ -419,14 +453,22 @@ nav #nav_right p {
   text-align: left;
   width: 100%;
 }
-.section-4 > p {
+.section-4 .forms .left>  p {
   padding: 0 4vw;
   line-height: 1.3;
-  font-size: 15px;
+  font-size: 13px;
   margin-bottom: 3vw;
   font-weight: 500;
   width: 100%;
   text-align: left;
+}
+.forms{
+  display: flex;
+}
+.forms img{
+  width: 50vw;
+  filter: brightness(75%);
+  object-fit: cover;
 }
 
 .section-4 form {
@@ -437,28 +479,45 @@ nav #nav_right p {
 }
 .section-4 form input,
 textarea {
+  color: #e5e5e5;
   display: inline-block;
   padding: 0.8vw 4vw;
   padding-left: 2vw;
   position: relative;
-  border-radius: 0px;
+  border-radius: 5px;
   outline: none;
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid #e5e5e5;
   max-width: 350px;
   width: 100%;
   resize: none;
 }
+.section-4 textarea{
+  height: 100px;
+}
 #submit {
-  background-color: #000;
+  background-color: #e5e5e5;
   border: none;
-  color: #e5e5e5;
+  color: #000;
   cursor: pointer;
-  padding: 1vw 4vw;
+  padding: 0.7vw 4vw;
+  font-size: 16px;
 }
 
 /* ------------------------------------- */
+.section-4 footer{
+  padding: 3vw 4vw 1vw 4vw;
+}
 
+.connects{
+  display: flex;
+  gap: 1vw;
+}
+.connects a{
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 27px;
+}
 @media (max-width: 970px) {
   /* nav {
         justify-content: center;
@@ -466,7 +525,9 @@ textarea {
   .cur-top {
     display: none;
   }
-
+  .cursor-min {
+    display: none;
+  }
   #nav_left ul {
     display: none;
   }
@@ -490,6 +551,9 @@ textarea {
   }
 }
 @media (max-width: 800px) {
+  .forms img{
+    display: none;
+  }
   .me {
     width: 70vw;
     height: unset;
@@ -530,6 +594,16 @@ textarea {
   }
 }
 @media (max-width: 550px) {
+  
+  .connects a{
+    text-decoration: none;
+    color: #e5e5e5;
+    font-size: 40px;
+  }
+  .connects{
+    display: flex;
+    gap: 3vw;
+  }
   .me {
     width: 80vw;
     height: unset;
@@ -543,6 +617,8 @@ textarea {
   }
   .fintory-bot {
     width: 100%;
+    flex-direction: column;
+    padding: 5px 10px;
   }
   .fintory-bot p {
     font-size: 12px;
@@ -554,15 +630,20 @@ textarea {
   }
   .fintory-bot a {
     border-radius: 10px;
-    font-size: 10px;
-    padding: 0.5vw 2vw;
+    font-size: 15px;
+    padding: 1vw 10vw;
+    margin: 2vw 1vw;
     display: inline-block;
     text-align: center;
     width: fit-content;
     border-radius: 15px;
   }
+
   .multiverse-bot {
     width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    flex-direction: column;
   }
   .multiverse-bot p {
     font-size: 12px;
@@ -574,12 +655,19 @@ textarea {
   }
   .multiverse-bot a {
     border-radius: 10px;
-    font-size: 10px;
-    padding: 0.5vw 2vw;
+    font-size: 15px;
+    padding: 1vw 10vw;
+    margin: 2vw 1vw;
     display: inline-block;
     text-align: center;
     width: fit-content;
     border-radius: 15px;
+  }
+  .section-4 footer{
+    margin-top: 10vw;
+  }
+  .section-4{
+    margin-top: 10vw;
   }
   .section-4 form {
     margin-top: 6vw;
@@ -593,7 +681,7 @@ textarea {
   }
   #submit {
     margin-top: 2vw;
-    padding: 4vw;
+    padding: 2vw;
   }
   .section-4 .content {
     flex-direction: column;
@@ -617,6 +705,7 @@ textarea {
   .section-3 p {
     padding: 1vw;
   }
+
 
   .section-3 .fintory {
     display: flex;
