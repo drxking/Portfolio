@@ -80,6 +80,9 @@ openb.addEventListener("click", () => {
   });
 });
 
+
+
+
 closeb.addEventListener("click", () => {
   // respo.style.transform = `translateX(100%)`
   respo.style.opacity = 0;
@@ -90,6 +93,51 @@ closeb.addEventListener("click", () => {
     opacity: 0,
   });
 });
+
+
+
+(function handleSwipe() {
+
+  let start = 0;
+  window.addEventListener("touchstart", (dets) => {
+    start = dets.changedTouches[0].screenX;
+  });
+
+  window.addEventListener("touchend", (cets) => {
+    let end = cets.changedTouches[0].screenX;
+    if (end - start >= 100) {
+      respo.style.opacity = 0;
+      respo.style.pointerEvents = "none";
+      gsap.to("#up ,#respo ul li,#respo footer p , #respo footer div", {
+        x: 200,
+        stagger: 0.05,
+        opacity: 0,
+      });
+    } else if (end - start <= -150) {
+      respo.style.opacity = 1;
+      respo.style.pointerEvents = `visible`;
+      gsap.to("#up ,#respo ul li,#respo footer p , #respo footer div", {
+        x: 0,
+        stagger: 0.05,
+        opacity: 1,
+      });
+    }
+
+    // Reset the values after processing
+    start = 0;
+    end = 0;
+  });
+
+
+}())
+
+
+
+
+
+
+
+
 let lis = document.querySelectorAll("#respo ul li");
 lis.forEach((li) => {
   li.addEventListener("click", () => {
@@ -250,7 +298,8 @@ if (innerWidtht < 720) {
   cardImg.style.animationPlayState = `paused`
   ii.forEach((i) => {
     i.style.animationPlayState = `paused`
-  })}
+  })
+}
 
 window.addEventListener("resize", () => {
   let innerWidtht = window.innerWidth
@@ -282,11 +331,11 @@ window.addEventListener("resize", () => {
 // timer();
 
 
-function resetIt(){
+function resetIt() {
   let name = document.getElementById("name")
   let email = document.getElementById("email")
   let message = document.getElementById("message")
-  window.addEventListener("load",()=>{
+  window.addEventListener("load", () => {
     name.value = ""
     email.value = ""
     message.value = ""
